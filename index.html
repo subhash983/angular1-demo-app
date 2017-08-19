@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+    </script>
+    <script type="text/javascript" src="./main.js">
+    </script>
+</head>
+
+<body>
+    <div ng-controller="mainCtrl as mc">
+        <h1>Clock App</h1>
+        <p>{{mc.hourOfDay
+            <=12? 'Good Morning': mc.hourOfDay<=17? 'Good Afternoon': 'Good Evening'}}</p>
+                <p>{{mc.hourOfDay}}</p>
+                <span>The Current time is {{mc.currentTime}}</span>
+                <input type="button" name="btnRefresh" value="Refresh" ng-click="mc.refreshTime()">
+                <input type="text" name="txtUserName" ng-model="mc.userName">
+                <span>Username is {{mc.userName}}</span>
+                <div>
+                    <input type="checkbox" name="chkIsSelected" ng-model="mc.isSelected">
+                    <span>Selected is {{mc.isSelected}}</span>
+                </div>
+    </div>
+    <div ng-controller="controller1 as ctrl1">
+        <span>{{ctrl1.testVar}}</span>
+    </div>
+    <div ng-controller="calculatorController as calcCtrl">
+        <h1>Calculator App</h1>
+        <input type="text" name="txtFirstValue" ng-model="calcCtrl.firstValue">
+        <input type="text" name="txtSecondValue" ng-model="calcCtrl.secondValue">
+        <span>Result is {{calcCtrl.result}}</span>
+        <p>Choose Operation:</p>
+        <input type="button" name="btnAdd" value="+" ng-click="calcCtrl.add()">
+        <input type="button" name="btnsubtract" value="-" ng-click="calcCtrl.subtract()">
+        <input type="button" name="btnMultiply" value="*" ng-click="calcCtrl.multiply()">
+        <input type="button" name="btnAdd" value="/" ng-click="calcCtrl.divide()">
+    </div>
+    <div ng-controller="directiveController as dCtrl">
+        <div ng-repeat="user in dCtrl.users">
+            <p>User {{$index+1}}</p>
+            <span>FirstName: {{user.fName}} </span>
+            <span>LastName: {{user.lName}} </span>
+            <hr/>
+        </div>
+    </div>
+</body>
+
+</html>
